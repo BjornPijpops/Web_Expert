@@ -1,0 +1,6 @@
+<input type="number" [(ngModel)]="number1"/><br>
+<input type="number" [(ngModel)]="number2"/><br>
+<input type="button" value="Optellen" (click)="calculateSum()"/><br>
+<div [hidden]="hideDiv()">
+  {{sum}}
+</div>
