@@ -3,7 +3,7 @@ export class Contact {
     email: string;
     phone: string;
     isFavorite: boolean;
-    avater: string;
+    avatar: string;
 
 
 	constructor(name: string, email: string, phone: string, isFavorite = false, avatar = 'assets/avatar.png') {
@@ -11,7 +11,7 @@ export class Contact {
         this.email = email;
         this.phone = phone;
         this.isFavorite = isFavorite;
-        this.avater = avatar;
+        this.avatar = avatar;
 	}
     
 }

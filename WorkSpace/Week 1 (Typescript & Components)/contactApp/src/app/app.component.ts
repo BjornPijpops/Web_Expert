@@ -7,16 +7,13 @@ import { Contact } from './models/contact.model'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myContact: Contact;
+  contactList: Contact[] = [
+    new Contact('John Doe', 'john.doe@gmail.com', '01166424893', true, 'assets/avatar.png'),
+    new Contact('Jane Doe', 'jane.doe@gmail.com', '011424839', true, 'assets/avatar.png'),
+    new Contact('Dries Swinnen', 'dries.swinnen@pxl.be', '011664839', true, 'assets/avatar.png')
+  ];
 
   ngOnInit() {
-    this.myContact = new Contact(
-      'John Doe',
-      'john.doe@gmail.com',
-      '01166424893',
-      true,
-      'assets/avater.png'
-    );
   }
 
   handleData(event: Contact) {
