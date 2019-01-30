@@ -1,0 +1,8 @@
+<table>
+  <tr *ngFor="let pet of pets">
+    <input type="button" value="del" (click)="deletePet(pet)"/>
+    {{pet}}
+  </tr>
+</table>
+<input type="text" [(ngModel)]= "enteredPet"/>
+<input type="button" value="toevoegen" (click)="addPet()"/>
