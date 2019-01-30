@@ -1,0 +1,7 @@
+<label for="input">Schrijf je in voor onze nieuwsbrief... </label>
+<input type="text" id="input" [(ngModel)]="email">
+<!--Useless event-->
+<input type="button" (click)="verwerk()" value="submit">
+<p>
+  {{email}}
+</p>
