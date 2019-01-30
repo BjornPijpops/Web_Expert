@@ -1,0 +1,5 @@
+<input type="button" value="Display details" (click)="toggle()">
+<p [hidden]="isHidden">Inhoud naar keuze.</p>
+<p *ngFor="let timestamp of timestamps;">
+  {{timestamp}}
+</p>
