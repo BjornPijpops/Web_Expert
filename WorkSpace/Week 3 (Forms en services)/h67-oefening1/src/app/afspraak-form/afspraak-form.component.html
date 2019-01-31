@@ -1,0 +1,32 @@
+<form #form="ngForm" (ngSubmit)="submit(form)">
+
+  <label for="omschrijving">Omschrijving: </label>
+  <input type="text" id="omschrijving" name="omschrijving" minlength="3" maxlength="25" [(ngModel)]="omschrijving" required />
+  <p *ngIf="form.controls.omschrijving?.errors?.minlength">Minimum 3 characters.</p>
+  <p *ngIf="form.controls.omschrijving?.errors?.maxlength">Maximum 25 characters.</p>
+  <p *ngIf="form.controls.omschrijving?.errors?.required">Required.</p>
+
+  <label for="datum">Datum:</label>
+  <input type="date" id="datum" name="datum" placeholder="dd/mm/jjjj" [(ngModel)]="datum" required />
+  <p *ngIf="form.controls.datum?.errors?.required">Required.</p>
+
+  <label for="voormiddag">Dagdeel:</label>
+  <input type="checkbox" name="voormiddag" value="voormiddag"> voormiddag
+  <input type="checkbox" name="namiddag" value="namiddag"> namiddag
+  <br><br>
+
+  <label>Type afspraak:</label>
+
+  <select>
+    <option *ngFor="let afspraak of afspraken">{{afspraak}}</option>
+  </select>
+
+  <form >
+    <label for="ja">Herinnering:</label>
+    <input type="radio" name="herinnering" value="ja"> ja
+    <input type="radio" name="herinnering" value="nee"> nee
+  </form>
+
+  <input type="submit"/>
+
+</form>
