@@ -59,3 +59,8 @@ button:focus {
 	margin-right: 0.5rem;
 	width: 50px;
 }
+:host.isLink:hover {
+	background: #27ae60;
+	color: #fff;
+	cursor: pointer;
+}
