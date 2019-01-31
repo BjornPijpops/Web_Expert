@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './services/contact.service';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
