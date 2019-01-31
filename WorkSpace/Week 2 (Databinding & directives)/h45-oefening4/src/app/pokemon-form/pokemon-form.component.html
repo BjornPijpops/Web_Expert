@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="submit(form)">
+  <label for="id">id: </label>
+  <input type="text" name="id" id="id" placeholder="1" formControlName="id">
+  <p *ngIf="form.get('id').hasError('required')">Required.</p>
+
+  <br><br>
+  <label for="name">name: </label>
+  <input type="text" name="name" id="name" placeholder="Bulbasaur" formControlName="name">
+  <p *ngIf="form.get('name').hasError('minlength')">Minimum 3 characters</p>
+  <p *ngIf="form.get('name').hasError('required')">Required.</p>
+
+  <br><br>
+  <label>Type: </label>
+  <select [(ngModel)]="nature">
+    <option *ngFor="let type of types">{{type}}</option>
+  </select>
+
+  <br><br>
+  <label for="avatar">avatar url: </label>
+  <input type="text" name="avatar" id="avatar" placeholder="assets/bulbasaur.png" formControlName="avatarUrl">
+  <p *ngIf="form.get('name').hasError('minlength')">Minimum 10 characters</p>
+  <p *ngIf="form.get('name').hasError('required')">Required.</p>
+
+  <br><br>
+  <input type="submit" [disabled]="form.invalid" value="Submit">
+</form>
