@@ -10,6 +10,6 @@
   </ul>
 </div>
 
-<input type="checkbox" name="isFavorite" id="isFavorite" [(ngModel)]="contact.isFavorite" (click)="toggleFavorite(index)">
+<input type="checkbox" name="isFavorite" id="isFavorite" [(ngModel)]="contact.isFavorite" (click)="toggleFavorite(contact.id, contact.isFavorite)"/>
 <label for="isFavorite" [class.favorite]="contact.isFavorite">Favorite</label><br>
 

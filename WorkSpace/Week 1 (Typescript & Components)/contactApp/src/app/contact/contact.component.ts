@@ -10,7 +10,6 @@ import { ContactService } from '../services/contact.service';
 
 export class ContactComponent implements OnInit{
     @Input() contact: Contact;
-    @Input() index: number;
     @Output() onUpdate: EventEmitter<any> = new EventEmitter();
 
     constructor(private service: ContactService) {}
@@ -18,8 +17,9 @@ export class ContactComponent implements OnInit{
     ngOnInit() {
     }
 
-    toggleFavorite(index: number) {
-        this.service.toggleFavorite(index);
-        this.onUpdate.emit();
+    toggleFavorite(id: string, isFavorite: boolean) {
+        this.service.updateContact(id, {isFavorite: isFavorite}).subscribe(
+            () => this.onUpdate.emit
+        );
     }
 }

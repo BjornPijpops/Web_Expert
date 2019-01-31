@@ -14,7 +14,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      'email': new FormControl(null, [Validators.required, Validators.pattern("[a-z0-9_\.]+@[a-z0-9_\.]")]),
+      'email': new FormControl(null, [Validators.required, Validators.pattern("[a-z0-9_\.]+@[a-z0-9_\.]+")]),
       'phone': new FormControl(null, [Validators.required, Validators.minLength(9)]),
       'isFavorite': new FormControl(false),
       'avatar': new FormControl(null),

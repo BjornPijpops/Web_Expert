@@ -9,23 +9,34 @@ import { ContactService } from './services/contact.service';
 })
 export class AppComponent {
   contactList: Contact[] = [];
+  onlyFavorites = false;
 
-  constructor(private service: ContactService){ }
+  constructor(private service: ContactService) { }
 
   ngOnInit() {
-    this.handleUpdate();
+    this.fetchContactList(this.onlyFavorites);
+  }
+
+  fetchContactList(onlyFavorites: boolean) {
+    this.service.getContactList(onlyFavorites).subscribe(data => {
+      this.contactList = data;
+    })
   }
 
   handleData(event: Contact) {
     console.log('Received data!', event);
   }
 
-  createContact(event: Contact){
-    this.service.addContactList(event);
-    this.handleUpdate();
+  createContact(event: Contact) {
+    this.service.addContactList(event).subscribe(() => this.fetchContactList(this.onlyFavorites));
   }
 
   handleUpdate() {
-    this.contactList = this.service.getContactList();
+    this.fetchContactList(this.onlyFavorites);
+  }
+
+  toggleView(onlyFavorites: boolean) {
+    this.onlyFavorites = !onlyFavorites;
+    this.fetchContactList(this.onlyFavorites);
   }
 }
