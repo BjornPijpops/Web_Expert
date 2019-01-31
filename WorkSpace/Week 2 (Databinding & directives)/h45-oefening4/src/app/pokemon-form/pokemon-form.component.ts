@@ -10,8 +10,6 @@ import { Pokemon, Type } from '../models/pokemon.model';
 export class PokemonFormComponent implements OnInit {
   form: FormGroup;
   types = ["Grass", "Fire", "Water"];
-  nature: number;
-  pokemonType: Type;
 
   @Output() onSubmit: EventEmitter<Pokemon> = new EventEmitter();
 
@@ -26,26 +24,15 @@ export class PokemonFormComponent implements OnInit {
   }
 
   submit(form) {
-    switch (this.nature) {
-      case 0:
-        this.pokemonType = Type.Grass;
-        break;
-      case 1:
-        this.pokemonType = Type.Fire;
-        break;
-      case 2:
-        this.pokemonType = Type.Water;
-        break;
-      default:
-        break;
-    }
     let pokemon: Pokemon = new Pokemon(
       form.value.id,
       form.value.name,
-      this.pokemonType,
+      // No clue how to get this value from a dropdown...
+      Type.Grass,
       form.value.avatarUrl
     )
     this.form.reset();
+    console.log(pokemon);
     this.onSubmit.emit(pokemon);
   }
 
